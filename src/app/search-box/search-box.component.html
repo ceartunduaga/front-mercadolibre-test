@@ -1,0 +1,20 @@
+<div class="nav-header">
+    <div class="grid flex container justify-content-center align-items-center">
+        <div class="col-fixed" style="width:100px" id="logolink" style="cursor: pointer; outline: none;" routerLink="/">
+            <img id="app-logo"
+                 [src]="'assets/layout/images/logo.png'"
+                 alt="poseidon-layout">
+        </div>
+        <div class="col p-fluid">
+            <div class="p-inputgroup">
+                <input type="text" pInputText placeholder="Search" [(ngModel)]="search">   
+                <button type="button" pButton pRipple icon="pi pi-search" class="p-button-secondary p-button-outlined btn-search" (click)="searchItem()"></button>      
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-breadcrumb></app-breadcrumb>
+<div class="layout-content">
+    <router-outlet></router-outlet>
+</div>
