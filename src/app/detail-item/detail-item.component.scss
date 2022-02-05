@@ -1,0 +1,23 @@
+.detail-item {
+	background-color: #fff;
+
+    .gallery__figure {
+        background-color: #fff;
+        height: 100%;
+        min-height: 500px;
+        padding: 16px;
+        display: flex;
+        text-align: center;
+        width: 700px;
+        opacity: 1;
+        visibility: visible;
+        justify-content: center;
+        
+        .gallery__figure__image {
+            height: auto;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+    }
+}
+
