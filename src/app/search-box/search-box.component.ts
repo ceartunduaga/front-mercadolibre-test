@@ -8,7 +8,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent implements OnInit {
-  search = '';
+  search:string | null = '';
   private unsubscribe$ = new Subject<void>();
   
   constructor(private router: Router,
@@ -19,14 +19,14 @@ export class SearchBoxComponent implements OnInit {
     this.route.queryParamMap.pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
       console.log(params.get('q'));
-      this.search = params.get('q') ? params.get('q') : '';
+      this.search = params.get('q') !== null ? params.get('q') : '';
     });
   }
 
   searchItem(){
     console.log('search');
-    this.router.navigate(['items'], { queryParams: { q: this.search }});
-      
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+    this.router.navigate(['items'], { queryParams: { q: this.search }}));
   }
 
   ngOnDestroy() {

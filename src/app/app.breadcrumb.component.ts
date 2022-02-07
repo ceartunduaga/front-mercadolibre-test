@@ -12,7 +12,7 @@ export class AppBreadcrumbComponent implements OnDestroy {
 
     subscription: Subscription;
 
-    items: MenuItem[];
+    items: MenuItem[] = [];
 
     constructor(public breadcrumbService: AppBreadcrumbService) {
         this.subscription = breadcrumbService.itemsHandler.subscribe(response => {

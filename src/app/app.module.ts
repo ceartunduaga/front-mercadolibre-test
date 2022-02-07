@@ -16,6 +16,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ToolbarModule} from 'primeng/toolbar';
 import {AvatarModule} from 'primeng/avatar';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ButtonModule,
