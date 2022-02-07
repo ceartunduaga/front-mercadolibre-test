@@ -11,8 +11,6 @@ export class ItemsService {
 
   get(serviceName: string) {
     const url =  environment.api + serviceName;
-    console.log('url',url);
-    
     return this.http.get(url);
   }
 }

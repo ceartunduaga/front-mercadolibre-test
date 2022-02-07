@@ -1,3 +1,38 @@
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+    animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+}
+
+@keyframes custom-progress-spinner-color {
+100%,
+0% {
+	stroke: #252e7c;
+}
+40% {
+	stroke: #252e7c;
+}
+66% {
+	stroke: #fff159;
+}
+80%,
+90% {
+	stroke: #fff159;
+}
+}
+
+@keyframes custom-progress-spinner-dash {
+0% {
+	stroke-dasharray: 1, 200;
+	stroke-dashoffset: 0;
+}
+50% {
+	stroke-dasharray: 89, 200;
+	stroke-dashoffset: -35px;
+}
+100% {
+	stroke-dasharray: 89, 200;
+	stroke-dashoffset: -124px;
+}
+}
 .p-dataview {
 	.p-dataview-content {
 		background: #FDFEFF;
@@ -36,6 +71,13 @@
 	}
 	.product-list-detail {
         flex: 1 1 0;
+		.price {
+			display: inline-block;
+			&::first-letter {
+				padding-right: 0.3em;
+			}
+		}
+		
         .item__title {
             color: #333;
             font-size: 20px;

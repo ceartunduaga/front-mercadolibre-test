@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { AppBreadcrumbService } from '../app.breadcrumb.service';
 
 @Component({
   selector: 'app-search-box',
@@ -13,20 +14,26 @@ export class SearchBoxComponent implements OnInit {
   
   constructor(private router: Router,
               private route: ActivatedRoute, 
-              ) { }
+              private breadcrumbService: AppBreadcrumbService,
+              ) { 
+      }
 
   ngOnInit(): void {
+    this.breadcrumbService.setItems([]);
     this.route.queryParamMap.pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
-      console.log(params.get('q'));
       this.search = params.get('q') !== null ? params.get('q') : '';
     });
   }
 
   searchItem(){
-    console.log('search');
+    const search = this.search;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-    this.router.navigate(['items'], { queryParams: { q: this.search }}));
+    this.router.navigate(['items'], { queryParams: { q: search }}));
+    this.breadcrumbService.setItems([]);
+  }
+  resetBreadcrumb(){
+    this.breadcrumbService.setItems([]);
   }
 
   ngOnDestroy() {

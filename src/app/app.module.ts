@@ -17,6 +17,8 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {AvatarModule} from 'primeng/avatar';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
+import { ChipModule } from 'primeng/chip';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     ToolbarModule,
     FormsModule,
     AvatarModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    ChipModule,
+    ProgressSpinnerModule
   ],
   providers: [ AppBreadcrumbService],
   bootstrap: [AppComponent]

@@ -1,24 +1,29 @@
 <div class="container detail-item">
     <div class=" grid grid-nogutter">
-        <div class="col-12 md:col-9">
+        <div class="col-12 md:col-9" *ngIf="!showSpinner">
             <div class="col-12 relative">
                 <figure class="gallery__figure">
                     <img data-index="0"
                         width="300" height="500" decoding="async"
-                        src="https://http2.mlstatic.com/D_NQ_NP_961405-MLC46238104065_062021-O.webp"
-                        class="image gallery__figure__image" alt="Imagen 1 de 2 de Funko Pop Wwe Edge 86 - Gw041">
+                        [src]="item.picture"
+                        class="image gallery__figure__image" 
+                        alt="{{item.title}}">
                 </figure>
             </div>
             <div class="col-12">
-                <h3>Descripcion</h3>
+                <h3 class="description__title">Descripción del producto</h3>
+                <p class="description__content">{{item.description}}</p>
             </div>
         </div>
-        <div class="col-12 md:col-3">
-            <h5>Categoria</h5>
-            <h3>Nombre</h3>
-            <h1>Precios</h1>
-            <button type="button" pButton pRipple class="" label="Comprar" ></button>      
+        <div class="col-12 md:col-3" *ngIf="!showSpinner">
+            <h5 class="subtitle">{{item.condition}} | {{item.sold_quantity}} vendidos</h5>
+            <h3 class="title">{{item.title}}</h3>
+            <h1 class="price-part">{{item.price.amount| currency : 'USD' : 'symbol' : '1.0-2' }}</h1>
+            <button type="button" pButton pRipple class="btn-principal" label="Comprar" ></button>      
 
+        </div>
+        <div class="col-12 justify-content-center align-items-center flex" *ngIf="showSpinner">
+            <p-progressSpinner styleClass="custom-spinner"></p-progressSpinner>
         </div>
     </div>
 </div>

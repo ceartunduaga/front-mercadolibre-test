@@ -1,18 +1,21 @@
 <div class="container dataview-content">
     <div class="grid grid-nogutter">
-        <div class="col-12">
-            <div class="product-list-item" (click)="goToDetail('1')">
-                <img src="http://44.201.194.56:8000/media/publications/2022/02/04/gato_1.jpeg" alt="Gato" >
+        <div class="col-12" *ngIf="!showSpinner">
+            <div class="product-list-item" (click)="goToDetail(item.id)" *ngFor="let item of items">
+                <img [src]="item.picture" alt="{{item.title}}" >
                 <div class="product-list-detail">
-                    <h2 class="item__title"> 
-                        199910
+                    <h2 class="item__title price"> 
+                        {{item.price.amount| currency : 'USD' : 'symbol' : '1.0-2' }}
                     </h2>
-                    <div class="price__part">Gato</div>
+                    <div class="price__part">{{item.title}}</div>
                 </div>
                 <div class="product-list-action">
-                    <i class="pi pi-heart"></i>
+                    <p-chip label="{{item.condition}}" styleClass="mr-2"></p-chip>
                 </div>
             </div>
+        </div>
+        <div class="col-12 justify-content-center align-items-center flex" *ngIf="showSpinner">
+            <p-progressSpinner styleClass="custom-spinner"></p-progressSpinner>
         </div>
     </div>
 </div>

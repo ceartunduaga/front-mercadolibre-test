@@ -6,5 +6,9 @@
 
     .btn-search{
         background-color: #fff;
+        border: 1px solid #ced4da;
+        &:hover{
+            background-color: #fff;
+        }
     }
 }

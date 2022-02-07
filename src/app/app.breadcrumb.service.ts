@@ -11,5 +11,9 @@ export class AppBreadcrumbService {
 
     setItems(items: MenuItem[]) {
         this.itemsSource.next(items);
+        localStorage.setItem('breadCrumbs', JSON.stringify(items));
+    }
+    getItems() {
+        return this.itemsSource.asObservable() ;
     }
 }

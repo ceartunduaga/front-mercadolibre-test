@@ -1,3 +1,38 @@
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+    animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+  }
+  
+  @keyframes custom-progress-spinner-color {
+    100%,
+    0% {
+        stroke: #252e7c;
+    }
+    40% {
+        stroke: #252e7c;
+    }
+    66% {
+        stroke: #fff159;
+    }
+    80%,
+    90% {
+        stroke: #fff159;
+    }
+  }
+  
+  @keyframes custom-progress-spinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+  }
 .detail-item {
 	background-color: #fff;
 
@@ -18,6 +53,52 @@
             -o-object-fit: contain;
             object-fit: contain;
         }
+    }
+    .subtitle {
+        color: rgba(0,0,0,.55);
+        font-size: 14px;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+    .title {
+        -webkit-flex: auto;
+        flex: auto;
+        font-size: 22px;
+        margin-bottom: 8px;
+        margin-right: 28px;
+        padding: 0;
+    }
+    .price-part {
+        font-weight: 300;
+        display: inline-block;
+
+        &::first-letter {
+            padding-right: 0.3em;
+        }
+    }
+    .btn-principal{
+        width: 100%;
+        background-color: #3483fa;
+        border-color: transparent;
+        color: #fff;
+        &:hover {
+            background-color: #2968c8;
+            border-color: transparent;
+            color: #fff;
+            -webkit-transition: background-color .2s ease-in;
+            transition: background-color .2s ease-in;
+        }
+    }
+    .description__title {
+        font-size: 24px;
+        font-weight: 400;
+        padding-bottom: 24px;
+    }
+    .description__content {
+        color: #666;
+        font-size: 20px;
+        font-weight: 400;
+        word-break: break-word;
     }
 }
 
