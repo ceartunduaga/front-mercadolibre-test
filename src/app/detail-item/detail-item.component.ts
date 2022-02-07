@@ -42,7 +42,6 @@ export class DetailItemComponent implements OnInit {
         const newBreadcrumb = { label: res.item.title }
         this.breadCrumbs.push(newBreadcrumb)
         this.breadcrumbService.setItems(this.breadCrumbs);
-
       },
       error: (err) => {
           console.log(err);

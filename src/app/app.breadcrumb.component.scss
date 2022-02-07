@@ -11,6 +11,7 @@
         display: flex;
         -ms-flex-align: center;
         align-items: center;
+        overflow-x: auto;
 
         .route-bar-breadcrumb {
             list-style: none;
@@ -44,4 +45,13 @@
     }
 
     
+}
+
+
+@media (min-width: 768px) {
+    .layout-breadcrumb {
+        .route-bar-breadcrumb {
+            display: block !important;
+        }
+    }
 }

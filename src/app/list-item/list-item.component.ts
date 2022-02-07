@@ -43,6 +43,7 @@ export class ListItemComponent implements OnInit {
             breadcrumbs.push(itemBreadcrumb)
           });
           this.breadcrumbService.setItems(breadcrumbs);
+          localStorage.setItem('breadCrumbs', JSON.stringify(breadcrumbs));
         },
         error: (err) => {
             console.log(err);
